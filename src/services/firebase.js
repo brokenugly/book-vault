@@ -31,3 +31,6 @@ if (import.meta.env.PROD) {
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
+if (typeof window !== 'undefined') {
+  window.__firebase = { auth: getAuth(app), db: getFirestore(app) };
+}

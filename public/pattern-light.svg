@@ -1,0 +1,14 @@
+<svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+  <g
+    transform="translate(140 0) scale(-1 1) rotate(50 70 70)"
+    opacity="0.05"
+    stroke="currentColor"
+    fill="none"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M28 38C28 32 33 27 39 27H58C64 27 70 32 70 38V102C70 96 64 91 58 91H39C33 91 28 96 28 102V38Z"/>
+    <path d="M112 38C112 32 107 27 101 27H82C76 27 70 32 70 38V102C70 96 76 91 82 91H101C107 91 112 96 112 102V38Z"/>
+  </g>
+</svg>

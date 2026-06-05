@@ -85,9 +85,6 @@ const Profile = () => {
   const [editingBook, setEditingBook] = useState(null);
   const [noteValue,   setNoteValue]   = useState('');
   const [savingNote,  setSavingNote]  = useState(false);
-  
-  console.log('DEBUG: user.uid=', user.uid);
-  console.log('DEBUG: firestore instance=', window.__firebase?.db);
 
   const fetchAll = useCallback(async () => {
     if (!user) return;

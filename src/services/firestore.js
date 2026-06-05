@@ -18,7 +18,9 @@ export const getUserBooks = async (userId) => {
   try {
     const q = query(collection(db, 'userBooks'), where('userId', '==', userId));
     const snapshot = await getDocs(q);
-    return snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+    let items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+	items.sort((a, b) => (b.completedAt || 0) - (a.completedAt || 0));
+	return items;
   } catch {
     throw new Error('Не удалось загрузить коллекцию книг');
   }
@@ -117,7 +119,9 @@ export const getReviewsByBook = async (bookId) => {
   try {
     const q = query(collection(db, 'reviews'), where('bookId', '==', bookId));
     const snapshot = await getDocs(q);
-    return sortByDate(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+    let items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+	items.sort((a, b) => (b.completedAt || 0) - (a.completedAt || 0));
+	return items;
   } catch (err) {
     console.error('getReviewsByBook error:', err);
     return [];
@@ -152,7 +156,9 @@ export const getUserCollections = async (userId) => {
   try {
     const q = query(collection(db, 'userCollections'), where('userId', '==', userId));
     const snapshot = await getDocs(q);
-    return snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+    let items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+	items.sort((a, b) => (b.completedAt || 0) - (a.completedAt || 0));
+	return items;
   } catch { return []; }
 };
 
@@ -207,8 +213,10 @@ export const saveUserTest = upsertUserTest;
 
 export const getUserTests = async (userId) => {
   try {
-    const q = query(collection(db, 'userTests'), where('userId', '==', userId), orderBy('completedAt', 'desc'));
+    const q = query(collection(db, 'userTests'), where('userId', '==', userId));
     const snapshot = await getDocs(q);
-    return sortByDate(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+    let items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+	items.sort((a, b) => (b.completedAt || 0) - (a.completedAt || 0));
+	return items;
   } catch (error) { console.error('getUserTests error:', error); throw error; }
 };

@@ -15,7 +15,7 @@ import { db } from './firebase';
 // ─── User Books ───
 
 export const getUserBooks = async (userId) => {
-	if (!userId) return [];
+	console.log('Запрос к коллекции userTests с userId:', userId);
   try {
     const q = query(collection(db, 'userBooks'), where('userId', '==', userId));
     const snapshot = await getDocs(q);
@@ -154,7 +154,7 @@ export const deleteReview = async (docId) => {
 // ─── User Collections (saved static collections) ───
 
 export const getUserCollections = async (userId) => {
-	if (!userId) return [];
+	console.log('Запрос к коллекции userTests с userId:', userId);
   try {
     const q = query(collection(db, 'userCollections'), where('userId', '==', userId));
     const snapshot = await getDocs(q);
@@ -214,7 +214,7 @@ export const upsertUserTest = async (data) => {
 export const saveUserTest = upsertUserTest;
 
 export const getUserTests = async (userId) => {
-	if (!userId) return [];
+	console.log('Запрос к коллекции userTests с userId:', userId);
   try {
     const q = query(collection(db, 'userTests'), where('userId', '==', userId));
     const snapshot = await getDocs(q);

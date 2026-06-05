@@ -89,6 +89,7 @@ const Profile = () => {
   const fetchAll = useCallback(async () => {
     if (!user) return;
     setLoading(true);
+	console.log('Загружаем данные для userId:', user.uid);
     try {
       const [booksData, collectionsData, testsData, reviewsData] = await Promise.all([
         getUserBooks(user.uid),

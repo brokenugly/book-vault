@@ -11,7 +11,7 @@ import {
   serverTimestamp,
 } from 'firebase/firestore';
 import { db } from './firebase';
-
+console.log('🌍 Firebase Project ID:', import.meta.env.VITE_FIREBASE_PROJECT_ID);
 // ─── User Books ───
 
 export const getUserBooks = async (userId) => {

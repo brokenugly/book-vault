@@ -12,7 +12,7 @@ const ContactsPage = () => (
   <div className="container mx-auto px-4 py-12 max-w-2xl">
     <h1 className="text-3xl font-bold mb-2">Контакты</h1>
     <p className="text-muted-foreground mb-8">
-      Свяжитесь с нами удобным способом — мы всегда рады вашим вопросам и предложениям.
+      Свяжитесь с нами удобным способом – мы всегда рады вашим вопросам и предложениям.
     </p>
 
     {/* Email block */}
@@ -22,13 +22,8 @@ const ContactsPage = () => (
       </div>
       <div>
         <p className="text-sm text-muted-foreground">Электронная почта</p>
-        <a
-          href="mailto:support@bookvault.app"
-          className="font-semibold hover:text-primary transition-colors"
-        >
-          support@bookvault.app
-        </a>
-        <p className="text-xs text-muted-foreground mt-0.5">Отвечаем в течение 1–2 рабочих дней</p>
+        <a className="font-semibold">support@bookvault.app</a>
+        <p className="text-xs text-muted-foreground mt-0.5">Отвечаем в течение 1-2 рабочих дней</p>
       </div>
     </div>
 
